@@ -2929,8 +2929,8 @@
 }
 
 .verified-icon {
-  width: 32px;
-  height: 62px;
+  /* width: 32px; */
+  /* height: 62px; */
   object-fit: contain;
   
 }
@@ -2951,6 +2951,8 @@
 @media (max-width: 768px) {
   .trusted-title {
     font-size: 1.6rem;
+    padding:10px;
+    margin-left:20px;
   }
   .verified-icon {
     width: 26px;
@@ -2964,8 +2966,14 @@
 @media (max-width: 480px) {
   .trusted-title {
     font-size: 1.4rem;
+     /* padding:10px; */
+    margin-left:35px; 
+    /* padding-bottom:2px; */
+    margin-top:-7px;
   }
   .extra-trust-image {
-    width: 95px;
+    /* width: 95px; */
+    width: 105px;
+    /* padding-top:1px; */
   }
 }
