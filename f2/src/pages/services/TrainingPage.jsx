@@ -26,6 +26,9 @@ import Student4 from "../../assets/test4.png";
 // Import video files - replace these paths with your actual video files
 import Video1 from "../../assets/videos/video1.mp4";
 import Video2 from "../../assets/videos/video2.mp4";
+import VerifiedIcon from "../../assets/verify.jpg";
+import GlobalTrustImg from "../../assets/xgs.jpg";
+
 
 const TrainingPage = () => {
   const navigate = useNavigate();
@@ -115,7 +118,7 @@ const TrainingPage = () => {
       image: WhyChoose2
     },
     {
-      title: "Associated with",
+      title: "Association with",
       icon: "fas fa-globe",
       content: "We are associated with leading educational bodies and testing organizations worldwide. Our certifications are recognized by universities and employers globally.",
       features: ["International Standards", "University Partnerships", "Global Certification", "Industry Recognition"],
@@ -434,7 +437,7 @@ methodologies</p>
       {/* New Section - Why Choose Our Training Program */}
       <div className="why-choose-section">
         <div className="why-choose-container">
-          <h2 className="why-choose-heading">Why is training program at Xcel Global Services the best</h2>
+          <h2 className="why-choose-heading">Reowned For Excellence In Training For Global Aspirants</h2>
           <p className="why-choose-subtitle">Discover what makes our training programs stand out from the rest</p>
           
           <div className="tabs-container">
@@ -507,6 +510,34 @@ methodologies</p>
           </div>
         </div>
       </div>
+
+      {/* Globally Trusted Section */}
+{/* Globally Trusted Section */}
+{/* Globally Trusted Section */}
+<div className="globally-trusted-section">
+  <div className="trusted-content">
+    <h2 className="trusted-title">
+      Globally Trusted
+      <img 
+        src={VerifiedIcon} 
+        alt="Verified" 
+        className="verified-icon"
+      />
+    </h2>
+
+    {/* Image below the text */}
+    <div className="trusted-extra-image">
+      <img 
+        src={GlobalTrustImg} 
+        alt="Global Recognition" 
+        className="extra-trust-image"
+      />
+    </div>
+  </div>
+</div>
+
+
+
 
       {/* Updated Student Achievements Section */}
       <div className="achievements-section">

@@ -2899,4 +2899,73 @@
     font-size: 13px;
   }
 }
+.globally-trusted-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0; /* remove any extra space from container */
+  padding: 0;
+}
 
+.trusted-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 1; /* tighten vertical spacing */
+}
+
+.trusted-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d2366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:6px;
+  margin: 0; /* remove bottom margin */
+  padding: 0;
+}
+
+.verified-icon {
+  width: 32px;
+  height: 62px;
+  object-fit: contain;
+  
+}
+
+/* ✅ Make the image slightly larger and close to the title */
+.trusted-extra-image {
+  margin-top: -2px; /* pulls image slightly up */
+}
+
+.extra-trust-image {
+  width: 140px; /* increased size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .trusted-title {
+    font-size: 1.6rem;
+  }
+  .verified-icon {
+    width: 26px;
+    height: 26px;
+  }
+  .extra-trust-image {
+    width: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-title {
+    font-size: 1.4rem;
+  }
+  .extra-trust-image {
+    width: 95px;
+  }
+}

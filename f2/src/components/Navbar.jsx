@@ -674,9 +674,9 @@ const CustomNavbar = () => {
                       SAT Coaching
                     </Nav.Link>
                     {/* New Training Items */}
-                    <Nav.Link as={Link} to="/services/training/gmat-coaching" onClick={closeAllMenus}>
+                    {/* <Nav.Link as={Link} to="/services/training/gmat-coaching" onClick={closeAllMenus}>
                       GMAT Coaching
-                    </Nav.Link>
+                    </Nav.Link> */}
                     <Nav.Link as={Link} to="/services/training/gre-coaching" onClick={closeAllMenus}>
                       GRE Coaching
                     </Nav.Link>
@@ -717,9 +717,10 @@ const CustomNavbar = () => {
                   SAT Coaching
                 </NavDropdown.Item>
                 {/* New Training Items */}
-                <NavDropdown.Item as={Link} to="/services/training/gmat-coaching" onClick={closeAllMenus}>
+                {/* <NavDropdown.Item as={Link} to="/services/training/gmat-coaching" onClick={closeAllMenus}>
                   GMAT Coaching
-                </NavDropdown.Item>
+
+                </NavDropdown.Item> */}
                 <NavDropdown.Item as={Link} to="/services/training/gre-coaching" onClick={closeAllMenus}>
                   GRE Coaching
                 </NavDropdown.Item>
