@@ -121,7 +121,7 @@ const TrainingPage = () => {
       title: "Association with",
       icon: "fas fa-globe",
       content: "We are associated with leading educational bodies and testing organizations worldwide. Our certifications are recognized by universities and employers globally.",
-      features: ["International Standards", "University Partnerships", "Global Certification", "Industry Recognition"],
+      features: ["International Standards","Global Certification", "Industry Recognition"],
       image: WhyChoose3
     },
     {
@@ -135,7 +135,7 @@ const TrainingPage = () => {
       title: "World Standards",
       icon: "fas fa-earth-americas",
       content: "Our training aligns with global benchmarks, ensuring top scores in IELTS, PTE, TOEFL and other international examinations.",
-      features: ["AI-Powered Learning", "Interactive Sessions", "Adaptive Methods", "Modern Technology"],
+      features: [ "Interactive Sessions", "Adaptive Methods", "Modern Technology"],
       image: WhyChoose5
     }
   ];
