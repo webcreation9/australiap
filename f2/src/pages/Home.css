@@ -663,6 +663,21 @@ xgs-section {
   box-shadow: 6px 6px 0 0 #f9b3b3;
   color: #e31b28;
 }
+/* Fix stat box text colors */
+.stat-box.pink .stat-number,
+.stat-box.pink .stat-label {
+  color: #0b1f57 !important; /* Dark blue to match pink box theme */
+}
+
+.stat-box.yellow .stat-number,
+.stat-box.yellow .stat-label {
+  color: #f9b233 !important; /* Orange to match yellow box theme */
+}
+
+.stat-box.red .stat-number,
+.stat-box.red .stat-label {
+  color: #e31b28 !important; /* Red to match red box theme */
+}
 
 .consult-btn {
   background-color: #0b1f57;
