@@ -3,7 +3,8 @@ import React, { useEffect,useRef , useState } from "react";
 
 import { Container, Row, Col, Button, Card, Image ,Carousel,Modal,Form} from "react-bootstrap";
 import "./Home.css";
-import Imm from "../assets/Imm.png"
+import Imm from "../assets/Imm.png";
+import PearsonAsso from "../assets/pearsonasso.jpg";
 import HeroBanner from "../assets/HeroBanner.svg";
 import Countries from "../assets/Countries.png";
 import XgsBanner3 from "../assets/XgsBanner3.png";
@@ -335,7 +336,9 @@ const logos = [
   },
   {
     alt: 'PTE Academic',
-    src: 'https://xcelgs.com/assets/img/test/5.png',
+    src:PearsonAsso,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
   },
 ];
