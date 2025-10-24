@@ -977,7 +977,7 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
       </Container>
     </section>    */}
    
- <section className="home-carousel-section">
+ {/* <section className="home-carousel-section">
       <Container fluid className="p-0">
         <Carousel fade interval={3000} controls={false} indicators>
           {banners.map((banner, index) => (
@@ -987,7 +987,24 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
           ))}
         </Carousel>
       </Container>
-    </section>
+    </section> */}
+    <section className="home-carousel-section">
+  <Container fluid className="p-0 m-0">
+    <Carousel fade interval={3000} controls={false} indicators className="w-100">
+      {banners.map((banner, index) => (
+        <Carousel.Item key={index} className="text-start">
+          <div className="d-flex justify-content-start">
+            <img 
+              className="banner-img w-100" 
+              src={banner.src} 
+              alt={banner.alt} 
+            />
+          </div>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  </Container>
+</section>
 
 
  <Container className="py-4">

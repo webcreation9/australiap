@@ -26,7 +26,8 @@ import Student4 from "../../assets/test4.png";
 // Import video files - replace these paths with your actual video files
 import Video1 from "../../assets/videos/video1.mp4";
 import Video2 from "../../assets/videos/video2.mp4";
-import VerifiedIcon from "../../assets/verify.jpg";
+// import VerifiedIcon from "../../assets/verify.jpg";
+import VerifiedIcon from "../../assets/ver.jpg";
 import GlobalTrustImg from "../../assets/xgs.jpg";
 
 
@@ -397,6 +398,7 @@ methodologies</p>
                           <span className="expertise-tag">PTE</span>
                           <span className="expertise-tag">SAT</span>
                           <span className="expertise-tag">GRE</span>
+                           <span className="expertise-tag">Language Cert</span>
                           <span className="expertise-tag">TOEFL</span>
                         </div>
                       </div>
@@ -517,7 +519,7 @@ methodologies</p>
 <div className="globally-trusted-section">
   <div className="trusted-content">
     <h2 className="trusted-title">
-      Globally Trusted
+      GLOBALLY TRUSTED
       <img 
         src={VerifiedIcon} 
         alt="Verified" 

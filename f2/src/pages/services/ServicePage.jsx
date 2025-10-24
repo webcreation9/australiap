@@ -197,10 +197,11 @@ const ServicePage = () => {
                   <Button 
                     variant="primary" 
                     size="lg"
+                    // onClick={() => navigate(`/demo`)}
                     onClick={() => navigate(`/demo?course=${service.title.split(' - ')[1] || service.title}`)}
                     className="px-5 py-3"
                   >
-                    Book Free Demo
+                    Book For Free Demo
                   </Button>
                 </Col>
               </Row>

@@ -31,11 +31,11 @@ const DemoPage = () => {
 
   // Time slots for scheduling
   const timeSlots = [
-    "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", 
+    "10:00 AM", "10:30 AM", 
     "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", 
     "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
     "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
-    "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM"
+    "05:00 PM", "05:30 PM", "06:00 PM"
   ];
 
   // Get tomorrow's date for min date
@@ -97,7 +97,7 @@ const DemoPage = () => {
         // Send WhatsApp message
         const message = `New Training Demo Request:%0A%0A*Name:* ${formData.name}%0A*Mobile:* ${formData.mobile}%0A*Email:* ${formData.email}%0A*Course:* ${formData.course}%0A*Demo Type:* ${formData.demoType}%0A*Schedule Date:* ${formData.scheduleDate || "Not specified"}%0A*Schedule Time:* ${formData.scheduleTime || "Not specified"}%0A*Additional Comments:* ${formData.additionalComments || "N/A"}`;
         
-        const whatsappUrl = `https://wa.me/919490677177?text=${message}`;
+        const whatsappUrl = `https://wa.me/912345678?text=${message}`;
         window.open(whatsappUrl, "_blank");
         
         alert("✅ Demo request submitted and WhatsApp message prepared!");
@@ -140,7 +140,7 @@ const DemoPage = () => {
               <Form>
                 {/* Name */}
                 <Form.Group className="mb-3" controlId="formName">
-                  <Form.Label>Your Name *</Form.Label>
+                  <Form.Label> Name *</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter your name"
@@ -167,7 +167,7 @@ const DemoPage = () => {
                   <Form.Label>Email Address *</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email address"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
@@ -186,11 +186,11 @@ const DemoPage = () => {
                     <option value="IELTS">IELTS Coaching</option>
                     <option value="PTE">PTE Coaching</option>
                     <option value="SAT">SAT Coaching</option>
-                    <option value="Language Certification">Language Certification</option>
+                    <option value="Language Certification">Language Cert</option>
                     <option value="Duolingo">Duolingo Coaching</option>
                     <option value="TOEFL">TOEFL Coaching</option>
                     <option value="GRE">GRE Coaching</option>
-                    <option value="GMAT">GMAT Coaching</option>
+                    {/* <option value="GMAT">GMAT Coaching</option> */}
                   </Form.Select>
                 </Form.Group>
 
