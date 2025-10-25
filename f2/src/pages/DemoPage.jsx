@@ -66,6 +66,7 @@ const DemoPage = () => {
         scheduleDate: formData.scheduleDate,
         scheduleTime: formData.scheduleTime,
         pageUrl: window.location.href,
+            isDemoRequest: true 
       };
 
       // Save to MongoDB and Excel

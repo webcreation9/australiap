@@ -497,7 +497,30 @@ app.get("/api/send-email/:id", async (req, res) => {
 
     console.log("✅ Found submission:", submission.name, submission.email);
 
-    const emailContent = `
+    // Check if this is a demo request (by looking for "Training Demo" in lookingFor field)
+    const isDemoRequest = submission.lookingFor && submission.lookingFor.includes("Training Demo");
+
+    let emailContent = '';
+
+    if (isDemoRequest) {
+      // Email template for DEMO REQUESTS (without lookingFor and country)
+      emailContent = `
+New Training Demo Request from Xcel Global Services:
+
+Name: ${submission.name}
+Mobile: ${submission.mobile}
+Email: ${submission.email}
+Comments: ${submission.comments || "N/A"}
+Schedule Date: ${submission.scheduleDate || "N/A"}
+Schedule Time: ${submission.scheduleTime || "N/A"}
+Page URL: ${submission.pageUrl || "N/A"}
+Submission Date: ${submission.createdAt}
+
+This is an automated message from the Xcel Global Services website.
+      `;
+    } else {
+      // Original email template for OTHER REQUESTS
+      emailContent = `
 New Consultation Request from Xcel Global Services:
 
 Name: ${submission.name}
@@ -515,14 +538,15 @@ Page URL: ${submission.pageUrl || "N/A"}
 Submission Date: ${submission.createdAt}
 
 This is an automated message from the Xcel Global Services website.
-    `;
+      `;
+    }
 
     console.log("📤 Attempting to send email via SendGrid API...");
 
     const msg = {
       to: 'sagiraju1770@gmail.com',
       from: process.env.EMAIL_USER,
-      subject: 'New Consultation Request - Xcel Global Services',
+      subject: isDemoRequest ? 'New Training Demo Request - Xcel Global Services' : 'New Consultation Request - Xcel Global Services',
       text: emailContent,
     };
 
@@ -534,7 +558,6 @@ This is an automated message from the Xcel Global Services website.
   } catch (err) {
     console.error("❌ Error sending email:", err);
     
-    // Detailed error information
     if (err.response) {
       console.error("❌ SendGrid API error details:", err.response.body);
     }
@@ -545,7 +568,6 @@ This is an automated message from the Xcel Global Services website.
     });
   }
 });
-
 // 3️⃣ Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({ 

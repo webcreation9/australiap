@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image} from "react-bootstrap";
 import "./ServiceLayout.css";
+// import { Link } from "react-router-dom";
 
 const ServiceLayout = ({ 
   title, 
