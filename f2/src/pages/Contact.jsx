@@ -689,8 +689,8 @@ const Contact = () => {
                   <div className="icon-circle bg-danger">
                     <FaEnvelope className="text-white fs-5" />
                   </div>
-                  <a href="mailto:migration@xcelgs.com" className="text-decoration-none text-dark">
-                    migration@xcelgs.com
+                  <a href="mailto:migration@xcelglobalservices.com" className="text-decoration-none text-dark">
+                    migration@xcelglobalservices.com
                   </a>
                 </Col>
 

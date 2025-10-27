@@ -71,7 +71,7 @@ function Footer() {
               {/* <h5>Australia</h5> */}
                <h5 className="location-heading">Australia</h5>
               <p><FaPhone className="icon" /> <a class="a-c-link" href="tel:1800959619">1800 959 619</a></p>
-              <p><FaEnvelope className="icon" /><a class="a-c-link" href="mailto:migration@xcelgs.com">migration@xcelgs.com</a></p>
+              <p><FaEnvelope className="icon" /><a class="a-c-link" href="mailto:migration@xcelglobalservices.com">migration@xcelglobalservices.com</a></p>
             </div>
           </Col>
           <Col xs={12} md={6} className="footer-location">
@@ -94,7 +94,7 @@ function Footer() {
             <div>
               {/* <h5>India</h5> */}
                <h5 className="location-heading">India</h5>
-              <p><FaPhone className="icon" /><a class="a-c-link" href="tel:919343369999">+91 93433 69999</a></p>
+              <p><FaPhone className="icon" /><a class="a-c-link" href="tel:+919343369999">+91 93433 69999</a></p>
               <p><FaEnvelope className="icon" /><a class="a-c-link" href="mailto:kukatpally@xcelgs.com">kukatpally@xcelgs.com</a></p>
             </div>
           </Col>

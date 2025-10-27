@@ -712,7 +712,7 @@ useEffect(() => {
 // const [flipped, setFlipped] = useState({});
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "https://australiap.onrender.com";
 // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 const [show, setShow] = useState(false);
 const [loading, setLoading] = useState(false);
@@ -857,6 +857,7 @@ const handleSend = async (type) => {
     if (type === "email") {
       // Send email
       const emailResponse = await fetch(`${API_URL}/api/send-email/${submitResult.id}`);
+      console.log(`${API_URL}/api/send-email/${submitResult.id}`);
       const emailResult = await emailResponse.json();
       
       if (!emailResponse.ok) {
@@ -921,11 +922,11 @@ const handleSend = async (type) => {
   }
 };
 const timeSlots = [
-  "10:00 AM", "10:30 AM", 
-  "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", 
-  "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
-  "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
-  "05:00 PM", "05:30 PM", "06:00 PM"
+  "10:00 AM (AEST)", "10:30 AM (AEST)", 
+  "11:00 AM (AEST)", "11:30 AM (AEST)", "12:00 PM (AEST)", "12:30 PM (AEST)", 
+  "01:00 PM (AEST)", "01:30 PM (AEST)", "02:00 PM (AEST)", "02:30 PM (AEST)",
+  "03:00 PM (AEST)", "03:30 PM (AEST)", "04:00 PM (AEST)", "04:30 PM (AEST)",
+  "05:00 PM (AEST)", "05:30 PM (AEST)", "06:00 PM (AEST)"
 ];
 
 // Get tomorrow's date for min date

@@ -7,7 +7,7 @@ const QRCodeLanding = () => {
   // const trainingPageUrl = "http://localhost:5173/services/training";
   // const trainingPageUrl = "http://192.168.0.104:5173/services/training";
 
-  const trainingPageUrl = `${window.location.origin}/#/services/training`;
+  const trainingPageUrl = `${window.location.origin}/services/training`;
   //  const trainingPageUrl = process.env.NODE_ENV === 'development' 
   //   ? `${window.location.origin}/#/services/training`
   //   : `/#/services/training`;
