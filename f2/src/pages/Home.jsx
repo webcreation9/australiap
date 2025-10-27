@@ -1465,13 +1465,13 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
         </div>
 
         <br />
-        <div className="text-center mt-4">
+        {/* <div className="text-center mt-4">
           <Link to="/contact">
             <Button className="consult-btn" variant="primary">
               Get Free Consultation
             </Button>
           </Link>
-</div>
+</div> */}
 
       </Col>
     </Row>
