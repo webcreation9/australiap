@@ -65,7 +65,7 @@ const TrainingPage = () => {
     { name: "GRE", slug: "gre-coaching" },
     { name: "PTE", slug: "pte-coaching" },
     { name: "SAT", slug: "sat-coaching" },
-    { name: "Language Cert", slug: "language-certification" },
+    { name: "Language Cert", slug: "languageCert" },
     { name: "Duolingo", slug: "duolingo-coaching" },
     { name: "TOEFL", slug: "toefl-coaching" }
   ];

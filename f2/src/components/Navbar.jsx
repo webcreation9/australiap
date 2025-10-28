@@ -680,8 +680,8 @@ const CustomNavbar = () => {
                     <Nav.Link as={Link} to="/services/training/gre-coaching" onClick={closeAllMenus}>
                       GRE Coaching
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/services/training/language-certification" onClick={closeAllMenus}>
-                      Language Certification
+                    <Nav.Link as={Link} to="/services/training/languageCert" onClick={closeAllMenus}>
+                      Language Cert
                     </Nav.Link>
                     <Nav.Link as={Link} to="/services/training/duolingo-coaching" onClick={closeAllMenus}>
                       Duolingo Coaching
@@ -724,8 +724,8 @@ const CustomNavbar = () => {
                 <NavDropdown.Item as={Link} to="/services/training/gre-coaching" onClick={closeAllMenus}>
                   GRE Coaching
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/services/training/language-certification" onClick={closeAllMenus}>
-                  Language Certification
+                <NavDropdown.Item as={Link} to="/services/training/languageCert" onClick={closeAllMenus}>
+                  Language Cert
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/services/training/duolingo-coaching" onClick={closeAllMenus}>
                   Duolingo Coaching

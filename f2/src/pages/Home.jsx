@@ -43,6 +43,7 @@ import { FaCalendarAlt, FaUser, FaArrowRight, FaArrowLeft } from "react-icons/fa
 import RN1 from "../assets/RN1.png";
 import RN2 from "../assets/RN2.png";
 import RN3 from "../assets/RN3.png";
+import language from "../assets/language.jpg";
 
 import RBLOGS from "../assets/RBLOGS.png"
 import worldImage from "../assets/worldImage.png"
@@ -337,6 +338,13 @@ const logos = [
   {
     alt: 'PTE Academic',
     src:PearsonAsso,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+  {
+    alt: 'language Cert',
+    src:language,
     // src: 'https://xcelgs.com/assets/img/test/5.png',
     // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
@@ -1350,19 +1358,19 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
           visa.slug === "student-visa"
         )
         .map((visa, idx) => (
-          <Col key={idx} xs={12} sm={10} md={7} lg={5}>
+          <Col key={idx} xs={12} sm={10} md={7} lg={5} className="d-flex">
             <div className="d-flex justify-content-center">
-              <Card className="visa-card p-4 border rounded">
-                <div className="d-flex flex-column flex-md-row align-items-center">
+              <Card className="visa-card p-4 border rounded h-100 w-100">
+                <div className="d-flex flex-column flex-md-row align-items-center  h-100">
                   <Image
                     src={visa.img}
                     alt={visa.title}
-                    className="animated-img me-md-4 mb-4 mb-md-0"
+                    className="animated-img me-md-4 mb-4 mb-md-0 flex-shrink-0"
                     width={200}
                     height={200}
                     rounded
                   />
-                  <div className="d-flex flex-column justify-content-between h-100">
+                  <div className="d-flex flex-column justify-content-between h-100 flex-fill">
                     <div>
                       <h5 className="fw-bold text-dark mb-2">{visa.title}</h5>
                       <p className="text-muted small mb-3 text-justify">
@@ -1374,7 +1382,7 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
                    
                     <Link
                       to={`/services/${visa.type}/${visa.slug}`}
-                      className="btn btn-outline-success read-more mt-3"
+                      className="btn btn-outline-success read-more mt-3 align-self-start"
                     >
                       Read More
                       <svg
