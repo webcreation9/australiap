@@ -729,10 +729,7 @@ methodologies</p>
       Book For Free Demo
     </button>
   </div>
-
-    
-    
-    </div>
+</div>
 
 
 

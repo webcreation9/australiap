@@ -1,0 +1,111 @@
+.diploma-application-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px 0;
+}
+
+.diploma-header {
+  padding: 40px 0;
+  color: white;
+}
+
+.diploma-header .header-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.diploma-header .header-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.diploma-main {
+  padding: 20px 0 60px;
+}
+
+.diploma-form-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.diploma-form-card .card-body {
+  padding: 40px;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.whatsapp-contact {
+  background: #25D366;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.whatsapp-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+@media (max-width: 768px) {
+  .diploma-header .header-title {
+    font-size: 2rem;
+  }
+  
+  .diploma-form-card .card-body {
+    padding: 25px;
+  }
+}
+.whatsapp-link:hover {
+  text-decoration: underline !important;
+  color: #128C7E !important;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.whatsapp-contact {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #25D366;
+}
