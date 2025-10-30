@@ -1502,6 +1502,13 @@ const ensureExcelFile = (filePath, sheetName) => {
       const wb = XLSX.utils.book_new();
       const ws = XLSX.utils.json_to_sheet([]);
       XLSX.utils.book_append_sheet(wb, ws, sheetName);
+      
+      // Create directory if it doesn't exist
+      const dir = path.dirname(filePath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      
       XLSX.writeFile(wb, filePath);
       console.log(`✅ Excel file created: ${filePath}`);
     } else {
@@ -1519,6 +1526,7 @@ const ensureExcelFile = (filePath, sheetName) => {
     }
   } catch (error) {
     console.error(`❌ Error ensuring Excel file ${filePath}:`, error);
+    console.error(`❌ Error details:`, error.message);
   }
 };
 
@@ -1530,9 +1538,21 @@ const diplomaExcelFile = path.join(__dirname, "diploma-applications.xlsx");
 ensureExcelFile(excelFile, "Submissions");
 ensureExcelFile(diplomaExcelFile, "DiplomaApplications");
 
+// Test file permissions
+console.log("📁 Current directory:", __dirname);
+console.log("📁 Excel file path:", excelFile);
+console.log("📁 Diploma Excel file path:", diplomaExcelFile);
+
+try {
+  fs.accessSync(excelFile, fs.constants.W_OK);
+  console.log("✅ Write permission granted for Excel file");
+} catch (err) {
+  console.log("❌ No write permission for Excel file:", err.message);
+}
+
 // ================= API ROUTES =================
 
-// 1️⃣ Save form submission (Home page form & Book for Free Demo)
+// 1️⃣ Save form submission (Home page form & Book for Free Demo) - FIXED EXCEL SAVING
 app.post("/api/submit", async (req, res) => {
   const { 
     name, mobile, email, lookingFor, country, comments, 
@@ -1580,20 +1600,26 @@ app.post("/api/submit", async (req, res) => {
     try {
       let wb;
       let data = [];
+      const filePath = excelFile;
       
-      if (fs.existsSync(excelFile)) {
-        wb = XLSX.readFile(excelFile);
+      console.log("📊 Attempting to save to Excel file:", filePath);
+      
+      // Check if file exists and read it
+      if (fs.existsSync(filePath)) {
+        console.log("📁 Excel file exists, reading...");
+        wb = XLSX.readFile(filePath);
+        
         if (wb.SheetNames.includes("Submissions")) {
           const ws = wb.Sheets["Submissions"];
           data = XLSX.utils.sheet_to_json(ws);
-          console.log(`📊 Read ${data.length} existing records from submissions Excel`);
+          console.log(`📊 Read ${data.length} existing records from Excel`);
         } else {
           console.log("❌ Submissions sheet not found, creating it...");
           const newWs = XLSX.utils.json_to_sheet([]);
           XLSX.utils.book_append_sheet(wb, newWs, "Submissions");
         }
       } else {
-        console.log("❌ Submissions Excel file not found, creating new...");
+        console.log("❌ Excel file not found, creating new workbook...");
         wb = XLSX.utils.book_new();
         const newWs = XLSX.utils.json_to_sheet([]);
         XLSX.utils.book_append_sheet(wb, newWs, "Submissions");
@@ -1601,11 +1627,11 @@ app.post("/api/submit", async (req, res) => {
 
       // Add new submission data
       const newRecord = {
-        "Name": name,
-        "Mobile": mobile,
-        "Email": email,
-        "Looking For": lookingFor,
-        "Country": country,
+        "Name": name || "",
+        "Mobile": mobile || "",
+        "Email": email || "",
+        "Looking For": lookingFor || "",
+        "Country": country || "",
         "Comments": comments || "",
         "Schedule Date": scheduleDate || "",
         "Schedule Time": scheduleTime || "",
@@ -1613,16 +1639,32 @@ app.post("/api/submit", async (req, res) => {
         "Student Accommodation": studentAccommodation ? 'Yes' : 'No',
         "Page URL": pageUrl || "",
         "Submission Date": new Date().toLocaleString(),
+        "MongoDB ID": savedSubmission._id.toString()
       };
 
+      console.log("📝 Adding new record to Excel:", newRecord);
+      
       data.push(newRecord);
 
+      // Update the worksheet
       const newWs = XLSX.utils.json_to_sheet(data);
       wb.Sheets["Submissions"] = newWs;
-      XLSX.writeFile(wb, excelFile);
-      console.log("✅ Submission saved to Excel file: submissions.xlsx");
+      
+      // Write the file
+      XLSX.writeFile(wb, filePath);
+      console.log("✅ Successfully saved to Excel file");
+      
+      // Verify the write
+      if (fs.existsSync(filePath)) {
+        const verifyWb = XLSX.readFile(filePath);
+        const verifyWs = verifyWb.Sheets["Submissions"];
+        const verifyData = XLSX.utils.sheet_to_json(verifyWs);
+        console.log(`✅ Verification: Excel file now has ${verifyData.length} records`);
+      }
+      
     } catch (excelError) {
       console.error("❌ Error saving to Excel:", excelError);
+      console.error("❌ Excel error details:", excelError.message);
       // Don't fail the request if Excel fails
     }
     
@@ -1759,9 +1801,12 @@ app.post("/api/diploma-application", upload.single('document'), async (req, res)
     try {
       let wb;
       let data = [];
+      const filePath = diplomaExcelFile;
       
-      if (fs.existsSync(diplomaExcelFile)) {
-        wb = XLSX.readFile(diplomaExcelFile);
+      console.log("📊 Attempting to save diploma application to Excel:", filePath);
+      
+      if (fs.existsSync(filePath)) {
+        wb = XLSX.readFile(filePath);
         if (wb.SheetNames.includes("DiplomaApplications")) {
           const ws = wb.Sheets["DiplomaApplications"];
           data = XLSX.utils.sheet_to_json(ws);
@@ -1778,7 +1823,8 @@ app.post("/api/diploma-application", upload.single('document'), async (req, res)
         XLSX.utils.book_append_sheet(wb, newWs, "DiplomaApplications");
       }
 
-      data.push({
+      // Add new diploma application data
+      const newRecord = {
         "Full Name": fullName,
         "Email": email,
         "Mobile": mobile,
@@ -1791,14 +1837,29 @@ app.post("/api/diploma-application", upload.single('document'), async (req, res)
         "Consent Given": consent === 'true' ? 'Yes' : 'No',
         "Page URL": pageUrl || "",
         "Submission Date": new Date().toLocaleString(),
-      });
+        "MongoDB ID": savedApplication._id.toString()
+      };
+
+      console.log("📝 Adding new diploma record to Excel:", newRecord);
+      
+      data.push(newRecord);
 
       const newWs = XLSX.utils.json_to_sheet(data);
       wb.Sheets["DiplomaApplications"] = newWs;
-      XLSX.writeFile(wb, diplomaExcelFile);
+      XLSX.writeFile(wb, filePath);
       console.log("✅ Diploma application saved to Excel file: diploma-applications.xlsx");
+      
+      // Verify the write
+      if (fs.existsSync(filePath)) {
+        const verifyWb = XLSX.readFile(filePath);
+        const verifyWs = verifyWb.Sheets["DiplomaApplications"];
+        const verifyData = XLSX.utils.sheet_to_json(verifyWs);
+        console.log(`✅ Verification: Diploma Excel file now has ${verifyData.length} records`);
+      }
+      
     } catch (excelError) {
       console.error("❌ Error saving diploma application to Excel:", excelError);
+      console.error("❌ Excel error details:", excelError.message);
       // Don't fail the request if Excel fails
     }
 
@@ -1866,7 +1927,49 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// 5️⃣ JSON Data API Routes
+// 5️⃣ Test Excel functionality endpoint
+app.get("/api/test-excel", (req, res) => {
+  try {
+    const filePath = excelFile;
+    console.log("🧪 Testing Excel functionality...");
+    
+    if (fs.existsSync(filePath)) {
+      const wb = XLSX.readFile(filePath);
+      const ws = wb.Sheets["Submissions"];
+      const data = XLSX.utils.sheet_to_json(ws);
+      
+      // Add a test record
+      const testRecord = {
+        "Name": "Test User",
+        "Mobile": "1234567890",
+        "Email": "test@test.com",
+        "Looking For": "Test Service",
+        "Country": "Test Country",
+        "Comments": "Test comment",
+        "Submission Date": new Date().toLocaleString(),
+        "Test": "YES"
+      };
+      
+      data.push(testRecord);
+      const newWs = XLSX.utils.json_to_sheet(data);
+      wb.Sheets["Submissions"] = newWs;
+      XLSX.writeFile(wb, filePath);
+      
+      res.json({ 
+        message: "✅ Excel test successful", 
+        records: data.length,
+        filePath: filePath
+      });
+    } else {
+      res.status(500).json({ error: "Excel file not found" });
+    }
+  } catch (error) {
+    console.error("❌ Excel test failed:", error);
+    res.status(500).json({ error: "Excel test failed: " + error.message });
+  }
+});
+
+// 6️⃣ JSON Data API Routes
 const readJSONFile = (filePath) => {
   try {
     if (fs.existsSync(filePath)) {
@@ -1927,7 +2030,7 @@ app.get("/api/services/:slug", (req, res) => {
   }
 });
 
-// 6️⃣ Serve uploaded files
+// 7️⃣ Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ================= START SERVER =================
@@ -1938,6 +2041,7 @@ app.listen(PORT, () => {
   console.log(`📧 SendGrid configured: ${!!(process.env.EMAIL_USER && process.env.SENDGRID_API_KEY)}`);
   console.log(`🎓 Diploma application endpoint: POST http://localhost:${PORT}/api/diploma-application`);
   console.log(`📝 Home page form endpoint: POST http://localhost:${PORT}/api/submit`);
+  console.log(`🧪 Excel test endpoint: GET http://localhost:${PORT}/api/test-excel`);
   console.log(`📊 Submissions Excel file: ${excelFile}`);
   console.log(`📊 Diploma Applications Excel file: ${diplomaExcelFile}`);
 });

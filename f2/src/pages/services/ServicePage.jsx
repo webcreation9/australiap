@@ -244,8 +244,8 @@ const ServicePage = () => {
     <Button 
       variant="primary" 
       size="lg"
-      // onClick={() => navigate(`/demo`)}
-      onClick={() => navigate(`/demo?course=${service.title.split(' - ')[1] || service.title}`)}
+      onClick={() => navigate(`/demo`)}
+      // onClick={() => navigate(`/demo?course=${service.title.split(' - ')[1] || service.title}`)}
       style={{
         background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
         border: 'none',
