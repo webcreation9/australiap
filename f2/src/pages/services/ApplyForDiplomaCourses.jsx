@@ -733,7 +733,7 @@ const ApplyForDiplomaCourses = () => {
   return (
     <div className="diploma-application-page">
       <header className="diploma-header text-center">
-        <h1 className="header-title">Apply For Diploma Courses</h1>
+        <h1 className="header-title">Apply For Diploma Courses In Australia</h1>
       </header>
 
       <Container className="diploma-main">
