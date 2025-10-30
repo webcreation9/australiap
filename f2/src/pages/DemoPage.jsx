@@ -98,7 +98,7 @@ const DemoPage = () => {
         // Send WhatsApp message
         const message = `New Training Demo Request:%0A%0A*Name:* ${formData.name}%0A*Mobile:* ${formData.mobile}%0A*Email:* ${formData.email}%0A*Course:* ${formData.course}%0A*Demo Type:* ${formData.demoType}%0A*Schedule Date:* ${formData.scheduleDate || "Not specified"}%0A*Schedule Time:* ${formData.scheduleTime || "Not specified"}%0A*Additional Comments:* ${formData.additionalComments || "N/A"}`;
         
-        const whatsappUrl = `https://wa.me/912345678?text=${message}`;
+        const whatsappUrl = `https://wa.me/918247674438?text=${message}`;
         window.open(whatsappUrl, "_blank");
         
         alert("✅ Demo request submitted and WhatsApp message prepared!");

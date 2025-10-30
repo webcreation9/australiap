@@ -897,7 +897,7 @@ const handleSend = async (type) => {
         `Schedule Date: ${formData.scheduleDate || "N/A"}%0A` +
         `Schedule Time: ${formData.scheduleTime || "N/A"}`;
       
-      const whatsappUrl = `https://wa.me/919490677177?text=${message}`;
+      const whatsappUrl = `https://wa.me/918247674438?text=${message}`;
       window.open(whatsappUrl, "_blank");
       
       alert("✅ Form submitted and WhatsApp message prepared!");
