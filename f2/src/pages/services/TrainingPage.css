@@ -773,8 +773,11 @@
 /* Close button inside the page */
 .close-book-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  /* top: 15px;
+  right: 15px; */
+  top: 10px;
+  right: 6px;
+  
   background: linear-gradient(135deg, #0D6efd, #4ccf7a);
   border: none;
   width: 35px;
@@ -848,8 +851,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 10px;
-  gap: 15px;
+  padding-top: 0px;
+  gap: 1px;
 }
 
 .student-name {
@@ -1788,7 +1791,7 @@
 .video-frame {
   width: 100%;
   max-width: 280px;
-  height: 220px;
+  height: 308px;
   border: 4px solid #0D2366;
   border-radius: 12px;
   padding: 3px;
@@ -1903,8 +1906,13 @@
 
 @media (max-width: 480px) {
   .video-frame {
-    max-width: 160px;
-    height: 120px;
+    /* max-width: 160px; */
+    max-width:187px;
+    /* height: 120px;
+     */
+     /* height: 186px;
+      */
+      height:207px;
   }
 }
 
@@ -2158,7 +2166,7 @@
   }
   
   .image-popup-content {
-    max-width: 98%;
+    max-width: 85%;
     padding: 10px;
   }
   
@@ -2904,7 +2912,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0;
+  margin-bottom: 10px;
   padding: 0;
 }
 
@@ -2934,6 +2942,7 @@
   width: 45px; /* Increased size */
   height: 45px; /* Make it square to maintain aspect ratio */
   object-fit: contain;
+  background-color: white;
   flex-shrink: 0; /* Prevent shrinking */
 }
 

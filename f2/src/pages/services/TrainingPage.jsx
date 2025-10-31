@@ -26,8 +26,10 @@ import Student4 from "../../assets/test4.png";
 // Import video files - replace these paths with your actual video files
 import Video1 from "../../assets/videos/video1.mp4";
 import Video2 from "../../assets/videos/video2.mp4";
+import Video3 from "../../assets/videos/video3.mp4";
 // import VerifiedIcon from "../../assets/verify.jpg";
-import VerifiedIcon from "../../assets/ver.jpg";
+// import VerifiedIcon from "../../assets/ver.jpg";
+import VerifiedIcon from "../../assets/verify10.jpg";
 import GlobalTrustImg from "../../assets/xgs.jpg";
 
 
@@ -173,6 +175,10 @@ const TrainingPage = () => {
     {
       id: 2,
       video: Video2
+    },
+     {
+      id: 3,
+      video: Video3
     }
   ];
 
@@ -528,13 +534,13 @@ methodologies</p>
     </h2>
 
     {/* Image below the text */}
-    <div className="trusted-extra-image">
+    {/* <div className="trusted-extra-image">
       <img 
         src={GlobalTrustImg} 
         alt="Global Recognition" 
         className="extra-trust-image"
       />
-    </div>
+    </div> */}
   </div>
 </div>
 

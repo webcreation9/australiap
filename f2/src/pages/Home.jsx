@@ -17,7 +17,10 @@ import YearsLogo from "../assets/YearsLogo.png";
 import Uk from "../assets/UK.png";
 import USA from "../assets/USA.png";
 import Australia from "../assets/Australia.png";
-
+import bupa from "../assets/bupa.jpg";
+import alliance from "../assets/alliance.jpg";
+import credila from "../assets/credila.jpg";
+import nib from "../assets/nib.jpg";
 import Canada from "../assets/Canada.png";
 import Germany from "../assets/Germany.png";
 import { useInView } from "react-intersection-observer"; 
@@ -349,6 +352,34 @@ const logos = [
     // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
   },
+   {
+    alt: 'bupa',
+    src:bupa,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+     {
+    alt: 'alliance',
+    src:alliance,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+     {
+    alt: 'credila',
+    src:credila,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+     {
+    alt: 'nib',
+    src:nib,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  }
 ];
 
 // const trainings = [

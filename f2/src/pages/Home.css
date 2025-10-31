@@ -1165,7 +1165,8 @@ xgs-section {
 }
 
 .section-title {
-  font-size: 2.25rem;
+  /* font-size: 2.25rem; */
+  font-size:28px;
   font-weight: 800;
   color: #152d6e;
   margin-bottom: 2rem;
