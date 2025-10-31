@@ -602,7 +602,9 @@ import { Container, Row, Col, Form, Button, Alert, Card } from "react-bootstrap"
 import "./ApplyForDiplomaCourses.css";
 
 const ApplyForDiplomaCourses = () => {
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = import.meta.env.VITE_API_URL || "https://australiap.onrender.com";
   
   const [loading, setLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
