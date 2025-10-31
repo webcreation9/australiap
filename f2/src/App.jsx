@@ -112,7 +112,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Diploma Courses Route - No Navbar/Footer */}
-        <Route path="/services/applyfordiplomacourses" element={<ApplyForDiplomaCourses />} />
+        <Route path="/services/apply-for-diploma-courses" element={<ApplyForDiplomaCourses />} />
         
         {/* All other routes with Navbar/Footer */}
         <Route path="*" element={
