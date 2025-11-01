@@ -779,6 +779,38 @@ useEffect(() => {
 
 const handleClose = () => setShow(false);
 
+
+// Add this to your existing useEffect section
+useEffect(() => {
+  const flipCard = document.querySelector('.video-flip-card');
+  const flipInner = document.querySelector('.video-flip-inner');
+  const video = document.querySelector('.video-player');
+
+  const handleFlip = () => {
+    flipInner.classList.toggle('flipped');
+    if (flipInner.classList.contains('flipped')) {
+      // Video is now visible, play it
+      video.play().catch(error => {
+        console.log('Video play failed:', error);
+      });
+    } else {
+      // Video is hidden, pause and reset
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
+
+  if (flipCard) {
+    flipCard.addEventListener('click', handleFlip);
+  }
+
+  return () => {
+    if (flipCard) {
+      flipCard.removeEventListener('click', handleFlip);
+    }
+  };
+}, []);
+
 // const handleSend = async (type) => {
 //   if (!formData.name || !formData.mobile || !formData.email || !formData.lookingFor || !formData.country) {
 //     alert("Please fill all required fields");
@@ -1445,50 +1477,74 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
 </div>
 {/* --------------YOUR JOURNEY STARTS WITH US------------------------------- */}
 
-   <main className="xgs-section py-0 my-0">
+ <main className="xgs-section py-0 my-0">
   <Container>
-    
     <Row className="align-items-start gx-md-5 gy-0">
-    
-      <Col
-  xs={12}
-  md={4}
-  className="d-flex flex-column align-items-center align-items-md-start pt-0 mt-0"
->
- 
-  {/* <Image src={XgsLogo1} alt="XGS Logo" className="logo-img" fluid /> */}
-  <Image src={CountSideImg} alt="Globe Travel"  className="rounded-img" fluid />
+      <Col xs={12} md={4} className="d-flex flex-column align-items-center align-items-md-start pt-0 mt-0">
+        {/* Video Flip Card */}
+        <div className="video-flip-card">
+          <div className="video-flip-inner">
+            {/* Front Side - Image */}
+            <div className="video-flip-front">
+              <div className="video-thumbnail-wrapper">
+                <Image 
+                  src={CountSideImg} 
+                  alt="Visa Grants This Month" 
+                  className="video-thumbnail-img"
+                  fluid
+                />
+                <div className="play-overlay">
+                  {/* <div className="play-icon">▶</div> */}
+                  <p className="play-text">Click to see our success stories</p>
+                </div>
+                <div className="video-badge">
+                  <span>Visa Grants This Month</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Back Side - Video */}
+            <div className="video-flip-back">
+              <div className="video-container">
+                <video 
+                  className="video-player"
+                  controls
+                  autoPlay
+                  muted
+                  playsInline
+                  onEnded={() => document.querySelector('.video-flip-inner').classList.remove('flipped')}
+                >
+                  <source src="/src/assets/videos/video4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <button 
+                  className="close-video-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const video = document.querySelector('.video-player');
+                    const flipInner = document.querySelector('.video-flip-inner');
+                    video.pause();
+                    video.currentTime = 0;
+                    flipInner.classList.remove('flipped');
+                  }}
+                >
+                  ✕ 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Col>
 
-</Col>
-
-
-
-
-      
       <Col xs={12} md={8}>
         <h2 className="section-heading">Your journey starts with us!</h2>
-
         <p className="section-text">
           Xcel Global Services with offices in Melbourne, Adelaide, Geelong & Perth, Australia.
         </p>
         <p className="section-text">
-          {/* We specialise in helping students achieve their dreams of studying abroad by
-          offering expert guidance on university selection, admission procedures and visa
-          assistance.
-          We specialise in helping students achieve their dreams of studying abroad by
-          offering expert guidance on university selection, admission procedures and visa
-          assistance. */}
           Your journey to study or settle abroad begins with Xcel Global Services, where your goals become our mission. From the moment you decide to explore opportunities overseas, we offer professional, personalised guidance tailored to your aspirations. Whether it's securing university admissions, visa approvals, or planning your migration pathway, we stand by you at every step. With expert insights, trusted processes, and a welcoming approach, Xcel Global Services ensures your transition is smooth, successful, and stress-free. Let us help you turn your dreams into reality-your journey truly starts with us.
-
         </p>
-        {/* <p className="section-text">
-          For those seeking migration solutions, Xcel Global Services also ranks among
-          the best migration consultants.
-           For those seeking migration solutions, Xcel Global Services also ranks among
-          the best migration consultants.
-        </p> */}
 
-       
         <div className="stats-container" ref={ref}>
           <div className="stat-box pink">
             <span className="stat-number">{displayed.years}</span>
@@ -1498,22 +1554,11 @@ Registration date: 24-June-2025 to 15-July-2025 🌍</p> *}
             <span className="stat-number">{displayed.visa.toLocaleString() + "+"}</span>
             <span className="stat-label">VISA Approved</span>
           </div>
-          
           <div className="stat-box red">
             <span className="stat-number">{displayed.success}%</span>
             <span className="stat-label">Admission Success</span>
           </div>
         </div>
-
-        <br />
-        {/* <div className="text-center mt-4">
-          <Link to="/contact">
-            <Button className="consult-btn" variant="primary">
-              Get Free Consultation
-            </Button>
-          </Link>
-</div> */}
-
       </Col>
     </Row>
   </Container>
