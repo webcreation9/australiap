@@ -318,9 +318,9 @@ useEffect(() => {
 
 
 const logos = [
-  {
-    alt: 'QEAC',
-    src: 'https://xcelgs.com/assets/img/test/1.png',
+   {
+    alt: 'MARA',
+    src: 'https://xcelgs.com/assets/img/test/3.png',
     className:"accreditation-logo" ,
   },
   {
@@ -329,13 +329,13 @@ const logos = [
     className:"accreditation-logo" ,
   },
   {
-    alt: 'MARA',
-    src: 'https://xcelgs.com/assets/img/test/3.png',
+    alt: 'IELTS',
+    src: 'https://xcelgs.com/assets/img/test/4.png',
     className:"accreditation-logo" ,
   },
   {
-    alt: 'IELTS',
-    src: 'https://xcelgs.com/assets/img/test/4.png',
+    alt: 'QEAC',
+    src: 'https://xcelgs.com/assets/img/test/1.png',
     className:"accreditation-logo" ,
   },
   {
@@ -345,14 +345,28 @@ const logos = [
     // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
   },
-  {
+   {
     alt: 'language Cert',
     src:language,
     // src: 'https://xcelgs.com/assets/img/test/5.png',
     // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
   },
-   {
+  {
+    alt: 'nib',
+    src:nib,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+  {
+    alt: 'credila',
+    src:credila,
+    // src: 'https://xcelgs.com/assets/img/test/5.png',
+    // src:"../../assets/pearsonasso.jpg",
+    className:"accreditation-logo" ,
+  },
+  {
     alt: 'bupa',
     src:bupa,
     // src: 'https://xcelgs.com/assets/img/test/5.png',
@@ -365,21 +379,8 @@ const logos = [
     // src: 'https://xcelgs.com/assets/img/test/5.png',
     // src:"../../assets/pearsonasso.jpg",
     className:"accreditation-logo" ,
-  },
-     {
-    alt: 'credila',
-    src:credila,
-    // src: 'https://xcelgs.com/assets/img/test/5.png',
-    // src:"../../assets/pearsonasso.jpg",
-    className:"accreditation-logo" ,
-  },
-     {
-    alt: 'nib',
-    src:nib,
-    // src: 'https://xcelgs.com/assets/img/test/5.png',
-    // src:"../../assets/pearsonasso.jpg",
-    className:"accreditation-logo" ,
   }
+   
 ];
 
 // const trainings = [

@@ -29,7 +29,7 @@ import Video2 from "../../assets/videos/video2.mp4";
 import Video3 from "../../assets/videos/video3.mp4";
 // import VerifiedIcon from "../../assets/verify.jpg";
 // import VerifiedIcon from "../../assets/ver.jpg";
-import VerifiedIcon from "../../assets/verify10.jpg";
+import VerifiedIcon from "../../assets/verify100.PNG";
 import GlobalTrustImg from "../../assets/xgs.jpg";
 
 
